@@ -80,8 +80,6 @@ npx hardhat --network ethereum-sepolia bridge-token --dest 43113 --amount 50
 
 
 ```solidity
-// SPDX-License-Identifier: MIT
-// (c)2024 Atlas (atlas@vialabs.io)
 pragma solidity =0.8.17;
 
 import "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
