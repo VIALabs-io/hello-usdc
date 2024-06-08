@@ -1,5 +1,5 @@
 import { task } from "hardhat/config";
-import chainConfig from "@cryptolink/contracts/config/chains";
+import chainConfig from "@vialabs-io/contracts/config/chains";
 
 task("send", "")
     .addParam("chain", "Chain ID")

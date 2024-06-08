@@ -1,11 +1,9 @@
 import { DeployFunction } from "hardhat-deploy/types";
-import chainConfig from "@cryptolink/contracts/config/chains";
+import chainConfig from "@vialabs-io/contracts/config/chains";
 
 const func: DeployFunction = async function (hre: any) {
 	const { deployer } = await hre.getNamedAccounts();
 	const { deploy } = hre.deployments;
-
-	console.log(chainConfig[hre.network.config.chainId].featureGateway);
 
 	await deploy("HelloUSDC", {
 		from: deployer,
@@ -13,7 +11,6 @@ const func: DeployFunction = async function (hre: any) {
 			chainConfig[hre.network.config.chainId].featureGateway
 		],
 		log: true,
-		
 	});
 
 	return hre.network.live;

@@ -3,7 +3,7 @@
 pragma solidity =0.8.17;
 
 import "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
-import "@cryptolink/contracts/features/FeatureUSDC.sol";
+import "@vialabs-io/contracts/features/FeatureUSDC.sol";
 
 contract HelloUSDC is FeatureUSDC {
     constructor(IFeatureGateway _featureGateway) FeatureUSDC(_featureGateway) {}

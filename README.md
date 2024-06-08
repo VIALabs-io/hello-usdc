@@ -40,7 +40,7 @@ PRIVATE_KEY=0000000000000000000000000000
 
 ## Deployment
 
-Deploy the `HelloUSDC` contract to your desired networks. This must be done for each network you wish to operate on. You can see a list of our networks in the [VIALabs package documentation](https://developer.cryptolink.tech/general/supported-networks).
+Deploy the `HelloUSDC` contract to your desired networks. This must be done for each network you wish to operate on. You can see a list of our networks in the [VIALabs package documentation](https://developer.vialabs.io/general/supported-networks).
 
 1. **Sepolia Testnet**:
 ```bash
@@ -70,7 +70,7 @@ npx hardhat --network avalanche-testnet configure
 
 ### Bridging USDC to Another Chain
 
-To send tokens to another chain it is required to set the `--dest` parameter to the destination chain ID. The example below uses the ID for the Polygon Testnet. Chain IDs can be looked up in the [NPM package documentation](https://github.com/CryptoLinkTech/npm?tab=readme-ov-file#testnets).
+To send tokens to another chain it is required to set the `--dest` parameter to the destination chain ID. The example below uses the ID for the Polygon Testnet. Chain IDs can be looked up in the [NPM package documentation](https://github.com/VIALabs-io/contracts?tab=readme-ov-file#testnets).
 
 ```bash
 npx hardhat --network ethereum-sepolia bridge-token --dest 43113 --amount 50
@@ -83,7 +83,7 @@ npx hardhat --network ethereum-sepolia bridge-token --dest 43113 --amount 50
 pragma solidity =0.8.17;
 
 import "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
-import "@cryptolink/contracts/features/FeatureUSDC.sol";
+import "@vialabs-io/contracts/features/FeatureUSDC.sol";
 
 contract HelloUSDC is FeatureUSDC {
     constructor(IFeatureGateway _featureGateway) FeatureUSDC(_featureGateway) {}
