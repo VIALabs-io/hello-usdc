@@ -20,13 +20,15 @@ task("send", "")
 
 		console.log('usdc', chainConfig[hre.network.config.chainId].usdc);
 
-		const usdc = await ethers.getContractAt("IERC20", chainConfig[hre.network.config.chainId].usdc, signer);
+		const usdc = await ethers.getContractAt("ERC20", chainConfig[hre.network.config.chainId].usdc, signer);
 		const helloUSDC = await ethers.getContract("HelloUSDC");
 
-		console.log('Approving', args.amount, 'to', await helloUSDC.getAddress());
-		await (await usdc.connect(signer).approve(await helloUSDC.getAddress(), ethers.parseEther(args.amount))).wait();
+		const amount = ethers.parseUnits(args.amount, await usdc.decimals());
 
-		console.log('Sending', args.amount, 'to', args.recipient);
-		await (await helloUSDC.send(args.chain, args.recipient, args.amount)).wait();
-		console.log('Sent', args.amount, 'to', args.recipient);
+		console.log('Approving', amount, 'to', await helloUSDC.getAddress());
+		await (await usdc.connect(signer).approve(await helloUSDC.getAddress(), ethers.parseEther("10000000"))).wait();
+
+		console.log('Sending', amount, 'to', args.recipient);
+		await (await helloUSDC.send(args.chain, args.recipient, amount)).wait();
+		console.log('Sent', amount, 'to', args.recipient);
 	});

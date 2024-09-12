@@ -3,15 +3,14 @@
 pragma solidity =0.8.17;
 
 import "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
-import "@vialabs-io/contracts/features/FeatureUSDC.sol";
+import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+import "@vialabs-io/contracts/features/ProtoCCTP.sol";
 
-contract HelloUSDC is FeatureUSDC {
-    constructor(IFeatureGateway _featureGateway) FeatureUSDC(_featureGateway) {}
-    
+contract HelloUSDC is ProtoCCTP {   
     function send(uint _destChainId, address _recipient, uint _amount) external {
         SafeERC20.safeTransferFrom(IERC20(usdc), msg.sender, address(this), _amount);
 
-        _sendUSDC(_destChainId, _recipient, _amount, abi.encode("any",1,_recipient));
+        _sendUSDC(_destChainId, _recipient, _amount);
     }
 
     // required processing function, can process multiple features and data
@@ -23,12 +22,5 @@ contract HelloUSDC is FeatureUSDC {
         bytes memory _featureData, // encoded feature input data from source chain
         bytes memory _featureReply // encoded feature output data from off-chain
     ) internal override {
-        // USDC already sent to the _recipient here on the destination that was specified in the
-        // send() on the source chain, no need to do anything else .. use the USDC as you wish
-        // for example, follow encoded instructions from the passed data to stake/split payment/etc.
-
-        (string memory one, uint two, address three) = abi.decode(_featureData, (string, uint, address));
-
-        // do something with the data
     }
 }

@@ -6,7 +6,7 @@
 	"license": "MIT",
 	"private": true,
 	"dependencies": {
-		"@vialabs-io/contracts": "https://github.com/VIALabs-io/contracts.git",
+		"@vialabs-io/contracts": "https://github.com/VIALabs-io/contracts.git#protp",
 		"@openzeppelin/contracts": "^4.9.5"
 	},
 	"devDependencies": {

@@ -26,6 +26,9 @@ task("configure", "")
 		}
 
 		const helloUSDC = await ethers.getContract("HelloUSDC");
+		
+		console.log('configuring contract:', chainsConfig[hre.network.config.chainId].featureGateway);
+		await (await helloUSDC.configure(chainsConfig[hre.network.config.chainId].featureGateway)).wait();
 
 		console.log('configuring message gateway:', chainsConfig[hre.network.config.chainId].message);
 		await (await helloUSDC.configureClient(chainsConfig[hre.network.config.chainId].message, chainids, addresses, confirmations)).wait();

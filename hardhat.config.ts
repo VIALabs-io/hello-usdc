@@ -37,6 +37,12 @@ const config: any = {
 			live: false,
 			accounts: accounts,
 		},
+		"base-sepolia": {
+			chainId: 84532,
+			url: "https://sepolia.base.org",
+			live: false,
+			accounts: accounts,
+		},
 		"avalanche-testnet": {
 			chainId: 43113,
 			url: "https://api.avax-test.network/ext/bc/C/rpc",

@@ -7,9 +7,7 @@ const func: DeployFunction = async function (hre: any) {
 
 	await deploy("HelloUSDC", {
 		from: deployer,
-		args: [
-			chainConfig[hre.network.config.chainId].featureGateway
-		],
+		args: [],
 		log: true,
 	});
 
