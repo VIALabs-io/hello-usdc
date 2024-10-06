@@ -70,10 +70,10 @@ npx hardhat --network avalanche-testnet configure
 
 ### Bridging USDC to Another Chain
 
-To send tokens to another chain it is required to set the `--dest` parameter to the destination chain ID. The example below uses the ID for the Polygon Testnet. Chain IDs can be looked up in the [NPM package documentation](https://github.com/VIALabs-io/contracts?tab=readme-ov-file#testnets).
+To send tokens to another chain it is required to set the `--chain` to the desired destinatino chain id and `--recipient` to the desired destination wallet. The example below uses the ID for the Avalanche Testnet. Chain IDs can be looked up in the [NPM package documentation](https://github.com/VIALabs-io/contracts?tab=readme-ov-file#testnets).
 
 ```bash
-npx hardhat --network ethereum-sepolia bridge-token --dest 43113 --amount 50
+npx hardhat --network ethereum-sepolia send --recipient 0xabcd...1234 --chain 43113 --amount 1
 ```
 
 ## Contract Breakdown of `HelloUSDC`
