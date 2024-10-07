@@ -4,9 +4,9 @@ pragma solidity =0.8.17;
 
 import "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
-import "@vialabs-io/contracts/features/ProtoCCTP.sol";
+import "@vialabs-io/contracts/features/FeatureCCTP.sol";
 
-contract HelloUSDC is ProtoCCTP {   
+contract HelloUSDC is FeatureCCTP {   
     function send(uint _destChainId, address _recipient, uint _amount) external {
         SafeERC20.safeTransferFrom(IERC20(usdc), msg.sender, address(this), _amount);
 
